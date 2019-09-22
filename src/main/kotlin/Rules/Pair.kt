@@ -11,11 +11,9 @@ object Pair : Rule() {
     override fun parse(hand: List<Card>, flippedCard: Card): Int {
         super.parse(hand, flippedCard)
 
-        val map = mutableMapOf<Value, Int>()
-        hand.forEach { map[it.value] = map[it.value]?.inc() ?: 1 }
-        map[flippedCard.value] = map[flippedCard.value]?.inc() ?: 1
+      val occurences = toIntMap(hand, flippedCard)
 
-        return map.values.fold(0, { acc, value ->
+        return occurences.values.fold(0, { acc, value ->
             acc +
                     when (value) {
                         2 -> 2

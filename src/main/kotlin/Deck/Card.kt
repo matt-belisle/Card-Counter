@@ -1,6 +1,30 @@
 package Deck
 enum class Suit { DIAMONDS, HEARTS, CLUBS, SPADES}
-enum class Value { ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING}
+enum class Value(val value: Int) { ACE(1), TWO(2), THREE(3), FOUR(4),
+    FIVE(5), SIX(6), SEVEN(7), EIGHT(8), NINE(9), TEN(10),
+    JACK(11), QUEEN(12), KING(13);
+    fun get(value: Int): Value
+    {
+        return when(value){
+            1 -> ACE
+            2 -> TWO
+            3 -> THREE
+            4 -> FOUR
+            5 -> FIVE
+            6 -> SIX
+            7 -> SEVEN
+            8 -> EIGHT
+            9 -> NINE
+            10 -> TEN
+            11 -> JACK
+            12 -> QUEEN
+            13 -> KING
+            // possible bug, would rather just throw error but not going to as no way to get this just recognize a king is the end
+            else -> ACE
+        }
+    }
+
+}
 class Card (val suit: Suit, val value: Value){
 
     fun getCardValue(): Int{
