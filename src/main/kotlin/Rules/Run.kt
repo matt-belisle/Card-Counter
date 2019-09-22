@@ -23,7 +23,7 @@ object Run : Rule() {
             var nextCard = item
             do {
                 currentCard = nextCard
-                nextCard = currentCard.get(currentCard.value + 1)
+
 
                 runLength++
                 duplicates *= (occurrences[currentCard] ?: 1)
@@ -32,7 +32,7 @@ object Run : Rule() {
                 if (currentCard == Value.KING) {
                     break
                 }
-
+                nextCard = currentCard.get(currentCard.value + 1)
             } while (distinctCards.contains(nextCard))
             val runValue = valueOfRun(runLength, duplicates)
             if (runValue > 0) {
