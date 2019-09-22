@@ -25,7 +25,46 @@ enum class Value(val value: Int) { ACE(1), TWO(2), THREE(3), FOUR(4),
     }
 
 }
-class Card (val suit: Suit, val value: Value){
+class Card {
+    val suit: Suit
+    val value: Value
+
+    constructor(suit: Suit, value: Value) {
+        this.suit = suit
+        this.value = value
+    }
+
+    // standard naming system 9D = 9 of diamonds
+    constructor(str:String){
+        assert(str.length == 2 || str.length == 3)
+        val cap = str.toUpperCase()
+        val valueStr = cap.dropLast(1)
+        val suitStr = cap.last()
+        this.value = when(valueStr){
+            "1" -> Value.ACE
+            "2" -> Value.TWO
+            "3" -> Value.THREE
+            "4" -> Value.FOUR
+            "5" -> Value.FIVE
+            "6" -> Value.SIX
+            "7" -> Value.SEVEN
+            "8" -> Value.EIGHT
+            "9" -> Value.NINE
+            "10" -> Value.TEN
+            "J" -> Value.JACK
+            "Q" -> Value.QUEEN
+            "K" -> Value.KING
+            else -> throw Exception("Illegal value entered for card: entered value: $str")
+        }
+        this.suit = when(suitStr){
+            'D' -> Suit.DIAMONDS
+            'H' -> Suit.HEARTS
+            'C' -> Suit.CLUBS
+            'S' -> Suit.SPADES
+            else -> throw Exception("Illegal suit entered for card: entered value: $str")
+        }
+
+    }
 
     fun getCardValue(): Int{
         return when(value){
@@ -52,6 +91,12 @@ class Card (val suit: Suit, val value: Value){
             return value == other.value && suit == other.suit
         }
         return false
+    }
+
+    override fun hashCode(): Int {
+        var result = suit.hashCode()
+        result = 31 * result + value.hashCode()
+        return result
     }
 
 }
