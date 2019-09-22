@@ -8,7 +8,7 @@ import org.junit.Test
 
 
 class PairTest{
-    //single pair
+
     @Test
     fun singlePair(){
         assertEquals(2,Pair.parse(listOf(Card(Suit.DIAMONDS, Value.TWO),
