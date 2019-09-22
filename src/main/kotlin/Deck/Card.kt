@@ -23,4 +23,12 @@ class Card (val suit: Suit, val value: Value){
         return "${value.name.toLowerCase().capitalize()} of ${suit.name.toLowerCase().capitalize()}"
     }
 
+    override fun equals(other: Any?): Boolean {
+        if(other is Card){
+            val otherCard = other as Card
+            return value == otherCard.value && suit == otherCard.suit
+        }
+        return false
+    }
+
 }
