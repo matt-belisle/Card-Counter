@@ -25,8 +25,7 @@ class Card (val suit: Suit, val value: Value){
 
     override fun equals(other: Any?): Boolean {
         if(other is Card){
-            val otherCard = other as Card
-            return value == otherCard.value && suit == otherCard.suit
+            return value == other.value && suit == other.suit
         }
         return false
     }

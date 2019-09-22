@@ -7,22 +7,22 @@ import Deck.Value
 // 2 points per pair
 // 6 points per three of a kind (as it is 3 different pairs)
 // 12 points per four of a kind (as it is 4 different pairs)
-class Pair() {
-    companion object: Rule(){
-        override fun parse(hand: List<Card>, flippedCard: Card): Int {
-            super.parse(hand, flippedCard)
+object Pair : Rule() {
+    override fun parse(hand: List<Card>, flippedCard: Card): Int {
+        super.parse(hand, flippedCard)
 
-            val map = mutableMapOf<Value, Int>()
-            hand.forEach { map[it.value] = map[it.value]?.inc() ?: 1}
-            map[flippedCard.value] = map[flippedCard.value]?.inc() ?: 1
+        val map = mutableMapOf<Value, Int>()
+        hand.forEach { map[it.value] = map[it.value]?.inc() ?: 1 }
+        map[flippedCard.value] = map[flippedCard.value]?.inc() ?: 1
 
-            return map.values.fold(0, {acc, value -> acc +
-                    when(value){
+        return map.values.fold(0, { acc, value ->
+            acc +
+                    when (value) {
                         2 -> 2
                         3 -> 6
                         4 -> 12
                         else -> 0
-            }})
-        }
+                    }
+        })
     }
 }
