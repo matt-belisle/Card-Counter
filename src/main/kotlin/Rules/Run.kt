@@ -29,7 +29,7 @@ object Run : Rule() {
                 duplicates *= (occurrences[currentCard] ?: 1)
 
                 // end check at kings no matter what
-                if (item == Value.KING) {
+                if (currentCard == Value.KING) {
                     break
                 }
 

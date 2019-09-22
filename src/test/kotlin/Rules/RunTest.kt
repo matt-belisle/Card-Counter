@@ -73,4 +73,15 @@ class RunTest{
             Card(Suit.DIAMONDS, Value.FIVE)
         ))
     }
+    @Test
+    fun notARun(){
+        assertEquals(0,Run.parse(listOf(
+            Card(Suit.DIAMONDS, Value.QUEEN),
+            Card(Suit.SPADES, Value.KING),
+            Card(Suit.HEARTS, Value.ACE),
+            Card(Suit.CLUBS, Value.TWO)
+        ),
+            Card(Suit.DIAMONDS, Value.FIVE)
+        ))
+    }
 }
