@@ -7,11 +7,11 @@ import org.junit.Assert.*
 import org.junit.Test
 
 
-class PairTest{
+class PairRuleTest{
 
     @Test
-    fun singlePair(){
-        assertEquals(2,Pair.parse(listOf(Card(Suit.DIAMONDS, Value.TWO),
+    fun singlePairRule(){
+        assertEquals(2,PairRule.parse(listOf(Card(Suit.DIAMONDS, Value.TWO),
             Card(Suit.SPADES, Value.TWO),
             Card(Suit.DIAMONDS, Value.SEVEN),
             Card(Suit.DIAMONDS, Value.TEN)),
@@ -20,7 +20,7 @@ class PairTest{
 
     @Test
     fun threeOfAKind(){
-        assertEquals(6,Pair.parse(listOf(Card(Suit.DIAMONDS, Value.TWO),
+        assertEquals(6,PairRule.parse(listOf(Card(Suit.DIAMONDS, Value.TWO),
             Card(Suit.SPADES, Value.TWO),
             Card(Suit.HEARTS, Value.TWO),
             Card(Suit.DIAMONDS, Value.TEN)),
@@ -29,7 +29,7 @@ class PairTest{
 
     @Test
     fun fourOfAKind(){
-        assertEquals(12,Pair.parse(listOf(Card(Suit.DIAMONDS, Value.TWO),
+        assertEquals(12,PairRule.parse(listOf(Card(Suit.DIAMONDS, Value.TWO),
             Card(Suit.SPADES, Value.TWO),
             Card(Suit.HEARTS, Value.TWO),
             Card(Suit.CLUBS, Value.TWO)),
@@ -38,7 +38,7 @@ class PairTest{
 
     @Test
     fun noMatch(){
-        assertEquals(0,Pair.parse(listOf(Card(Suit.DIAMONDS, Value.TWO),
+        assertEquals(0,PairRule.parse(listOf(Card(Suit.DIAMONDS, Value.TWO),
             Card(Suit.SPADES, Value.THREE),
             Card(Suit.HEARTS, Value.FOUR),
             Card(Suit.CLUBS, Value.FIVE)),
@@ -46,8 +46,8 @@ class PairTest{
     }
 
     @Test
-    fun twoPair(){
-        assertEquals(4,Pair.parse(listOf(Card(Suit.DIAMONDS, Value.TWO),
+    fun twoPairRule(){
+        assertEquals(4,PairRule.parse(listOf(Card(Suit.DIAMONDS, Value.TWO),
             Card(Suit.SPADES, Value.TWO),
             Card(Suit.HEARTS, Value.ACE),
             Card(Suit.CLUBS, Value.FOUR)),
@@ -56,7 +56,7 @@ class PairTest{
 
     @Test
     fun pairThreeofAKind(){
-        assertEquals(8,Pair.parse(listOf(Card(Suit.DIAMONDS, Value.TWO),
+        assertEquals(8,PairRule.parse(listOf(Card(Suit.DIAMONDS, Value.TWO),
             Card(Suit.SPADES, Value.TWO),
             Card(Suit.HEARTS, Value.ACE),
             Card(Suit.CLUBS, Value.ACE)),
