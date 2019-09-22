@@ -20,7 +20,7 @@ enum class Value(val value: Int) { ACE(1), TWO(2), THREE(3), FOUR(4),
             12 -> QUEEN
             13 -> KING
             // possible bug, would rather just throw error but not going to as no way to get this just recognize a king is the end
-            else -> ACE
+            else -> throw Exception("Tried to increment past King")
         }
     }
 
