@@ -8,6 +8,7 @@ class ScoreCalculator {
 
         private fun calculateScore(hand: List<Card>, flippedCard: Card, rules: List<Rule>) =
              rules.fold(0, { acc, rule -> acc + rule.parse(hand, flippedCard) })
+
     }
 
 

@@ -6,6 +6,6 @@ fun main(args: Array<String>) {
         return
     }
     val hand = args.map { Card(it) }
-    println("Hand is  ${hand[0]}, ${hand[1]}, ${hand[2]}, ${hand[3]}, the flipped card is ${hand[4]}")
+    println("Hand is ${hand[0]}, ${hand[1]}, ${hand[2]}, ${hand[3]}, the flipped card is ${hand[4]}")
     println("The hand is worth ${ScoreCalculator.calculateCribbageScore(hand.subList(0,4), hand[4])}")
 }

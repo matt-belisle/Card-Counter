@@ -19,7 +19,7 @@ object Run : Rule() {
             var runLength = 0
             // multiply runCount by duplicates
             var duplicates = 1
-            var currentCard = item
+            var currentCard: Value
             var nextCard = item
             do {
                 currentCard = nextCard
